@@ -6,6 +6,7 @@ Interaktywny atlas stref: **57 map**, **865 pinów** (taxi, quest, vendor, NPC) 
 **Lokalnie:** otwórz `index.html` (Leaflet i mapy są w repo).
 
 ## Co potrafi
+- **Mapy kontynentów jako drzwi do stref**: na Eastern Kingdoms i Kalimdor narysowane są prostokąty stref — klik w strefę (albo w jej etykietę) otwiera mapę tej strefy, breadcrumb „Eastern Kingdoms › Westfall" i **Backspace** wracają do kontynentu.
 - **Lista stref** pogrupowana: Świat (Azeroth, Kalimdor, Eastern Kingdoms) · Kalimdor · Eastern Kingdoms · Pola bitew · Inne.
 - **Mapa z zoomem i przesuwaniem** (Leaflet, CRS.Simple) — obraz strefy w pełnej rozdzielczości 1002×668.
 - **Piny według typu**: taxi (niebieski), quest (żółty), vendor (zielony), NPC (szary); obwódka = frakcja (Alliance/Horde/obie).
@@ -14,6 +15,11 @@ Interaktywny atlas stref: **57 map**, **865 pinów** (taxi, quest, vendor, NPC) 
 - **Siatka stref** — 57 miniatur, klik = otwarcie mapy.
 - **Klawiatura**: ← → przełącza strefy. Ostatnia strefa zapamiętana w localStorage.
 - Responsywne: na telefonie lista chowa się pod ☰.
+
+## Skąd prostokąty stref
+`worldmaparea.csv` z repo TheGrayDot/wow-vanilla-world-coords — granice stref w koordynatach świata (WorldMapArea) plus osobne wiersze „Azeroth" (mapID 0) i „Kalimdor" (mapID 1) definiujące zasięg mapy kontynentu. Normalizacja:
+`u = (LocLeft_continent − LocLeft_zone) / (LocLeft_continent − LocRight_continent)`, `v = (LocTop_continent − LocTop_zone) / (LocTop_continent − LocBottom_continent)`.
+46/49 stref ma prostokąt; nowe strefy Forever (Riverglades, Shendralas, Mount Hyjal) nie mają odpowiednika w vanilla — są tylko na liście.
 
 ## Dane
 - Mapy i piny: [warcraftforever.games/maps](https://warcraftforever.games/maps) — build klienta **1.60.1.69893**.
