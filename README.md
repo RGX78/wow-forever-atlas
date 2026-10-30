@@ -16,6 +16,11 @@ Interaktywny atlas stref: **57 map**, **865 pinów** (taxi, quest, vendor, NPC) 
 - **Klawiatura**: ← → przełącza strefy. Ostatnia strefa zapamiętana w localStorage.
 - Responsywne: na telefonie lista chowa się pod ☰.
 
+## Poziomy stref (levelowanie)
+Każda strefa ma zakres poziomów widoczny w liście, na etykietach kontynentu i w belce tytułu (`poziom 10–20 · 15 pinów`). Chip **„trasa 1–60"** otwiera listę stref w kolejności levelowania, pogrupowaną co 10 poziomów.
+
+Zakresy dla starych stref = kanoniczne zakresy Classic (1–10 Elwynn, 10–20 Westfall, 15–25 Redridge, 30–45 STV itd.). Nowe strefy Forever bez potwierdzonego zakresu są oznaczone **`~`** (szacunek z poziomów NPC): Zephras Isle, Darkspear Islands, Riverglades, Moonglade. `Shendralas` nie ma żadnych NPC w bazie → `?`.
+
 ## Skąd prostokąty stref
 `worldmaparea.csv` z repo TheGrayDot/wow-vanilla-world-coords — granice stref w koordynatach świata (WorldMapArea) plus osobne wiersze „Azeroth" (mapID 0) i „Kalimdor" (mapID 1) definiujące zasięg mapy kontynentu. Normalizacja:
 `u = (LocLeft_continent − LocLeft_zone) / (LocLeft_continent − LocRight_continent)`, `v = (LocTop_continent − LocTop_zone) / (LocTop_continent − LocBottom_continent)`.
